@@ -1,6 +1,13 @@
 var express = require('express');
 var app = express();
+app.set('views', './views'); //폴더명  : views
+
+app.set('view engine', 'jade');
+
 app.use(express.static('public'));
+app.get('/template', function(req, res){
+  res.render('temp'); //temp라는 템플릿 파일을 웹페이지로 전송한다.
+})
 app.get('/', function (req, res){
   res.send('Hello home page');
 });
